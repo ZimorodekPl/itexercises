@@ -1,0 +1,25 @@
+#przyjmujemy, ze uzytkownik jest "mily" i wprowadza poprawne dane
+wygrane = input("Podaj wyniki:")
+
+x = wygrane[0]
+ciag = 1
+maxciag = 1
+druzyna = x
+for i in range(len(wygrane)-1):
+    if wygrane[i+1] == x:
+        ciag += 1
+        if ciag > maxciag:
+            maxciag = ciag
+            druzyna = wygrane[i+1]
+        elif ciag == maxciag:
+            druzyna = 2
+        continue
+    x = wygrane[i+1]
+    ciag = 1
+    if ciag == maxciag:
+        druzyna = 2
+
+if druzyna == 2:
+    druzyna = "Obie"
+print(f"Najdluzszy ciag wygranych: {maxciag}")
+print(f"Druzyna: {druzyna}")
